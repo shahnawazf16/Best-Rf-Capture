@@ -1,0 +1,17 @@
+#!/usr/bin/env python3
+import sys
+import os
+
+# Add the src directory to Python path
+current_dir = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, os.path.join(current_dir, 'src'))
+
+try:
+    from cli.simple_main import main
+except ImportError as e:
+    print(f"Error: {e}")
+    print("Make sure all files are in the correct location.")
+    sys.exit(1)
+
+if __name__ == "__main__":
+    main()
